@@ -17,7 +17,7 @@ public final class UELog {
      * @param tag 全局标签（默认为UEUEO）
      */
     public static void init(String tag) {
-        printer.getLogConfig().tag(tag);
+        init(tag, 1);
     }
 
     /**
@@ -27,7 +27,7 @@ public final class UELog {
      * @param methodCount 全局显示方法调用栈数量（默认为1）
      */
     public static void init(String tag, int methodCount) {
-        printer.getLogConfig().tag(tag).methodCount(methodCount);
+        init(tag, methodCount, UELogLevel.VERBOSE);
     }
 
     /**
@@ -35,10 +35,22 @@ public final class UELog {
      *
      * @param tag         全局Tag（默认为UEUEO）
      * @param methodCount 全局显示方法调用栈数量（默认为1）
+     * @param level       全局日志输出等级
+     */
+    public static void init(String tag, int methodCount, int level) {
+        init(tag, methodCount, level, false);
+    }
+
+    /**
+     * 初始化全局配置
+     *
+     * @param tag         全局Tag（默认为UEUEO）
+     * @param methodCount 全局显示方法调用栈数量（默认为1）
+     * @param level       全局日志输出等级
      * @param printToFile 全局是否输出到文件中（默认为否），如果要打印到文件需要申请文件读写权限
      */
-    public static void init(String tag, int methodCount, boolean printToFile) {
-        printer.getLogConfig().tag(tag).methodCount(methodCount).printToFile(printToFile);
+    public static void init(String tag, int methodCount, int level, boolean printToFile) {
+        printer.getLogConfig().tag(tag).methodCount(methodCount).setLogLevel(level).printToFile(printToFile);
     }
 
     /**

@@ -399,6 +399,10 @@ public final class UELogPrinter {
      * @return
      */
     private String parseXmlMessage(String xml) {
+        if (UELogLevel.DEBUG < mLogConfig.getLogLevel()) {
+            //因为对象输出是以debug级别输出的，所以如果日志级别配置高于DEBUG等级，则不会输出，所以也不需要进行字符串格式化
+            return null;
+        }
         if (!TextUtils.isEmpty(xml)) {
             try {
                 Source xmlInput = new StreamSource(new StringReader(xml));
@@ -423,6 +427,10 @@ public final class UELogPrinter {
      * @return
      */
     private String parseJsonMessage(String json) {
+        if (UELogLevel.DEBUG < mLogConfig.getLogLevel()) {
+            //因为对象输出是以debug级别输出的，所以如果日志级别配置高于DEBUG等级，则不会输出，所以也不需要进行字符串格式化
+            return null;
+        }
         if (!TextUtils.isEmpty(json)) {
             try {
                 json = json.trim();
@@ -452,6 +460,10 @@ public final class UELogPrinter {
      * @return
      */
     private String parseObjectMessage(Object obj) {
+        if (UELogLevel.DEBUG < mLogConfig.getLogLevel()) {
+            //因为对象输出是以debug级别输出的，所以如果日志级别配置高于DEBUG等级，则不会输出，所以也不需要进行字符串格式化
+            return null;
+        }
         if (obj != null) {
             try {
                 if (obj instanceof List) {
