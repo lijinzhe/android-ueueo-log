@@ -27,7 +27,7 @@ android-ueueo-log是Android日志输出工具，对输出的日志信息进行�
 
 ```gradle
 dependencies {
-   compile 'com.ueueo:log:2.2'
+   compile 'com.ueueo:ueueo-log:2.5'
 }
 ```
 
