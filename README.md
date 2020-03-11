@@ -14,7 +14,7 @@ android-ueueo-log是Android日志输出工具，对输出的日志信息进行�
 *   可自由控制日志输出级别；
 *   支持日志的拼接组合输出；
 
-![](https://raw.githubusercontent.com/lijinzhe/android-ueueo-log/master/static/image1.png)
+![](/static/image1.png)
 
 
 下载和导入
